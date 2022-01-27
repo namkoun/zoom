@@ -88,7 +88,7 @@
     // 화면캡쳐(video)를 시작하는 함수
     async function startCapture() {
         try {
-            const displayMediaOptions = {id:'1' ,audio: false, video: { cursor: 'always' } }
+            const displayMediaOptions = {id:'1' ,audio: true, video: { cursor: 'always' } }
             const captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
             videoElement.srcObject = captureStream
             startButton.disabled = true

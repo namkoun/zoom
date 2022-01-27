@@ -32,7 +32,7 @@ socket.on('update', function (data){
                                 </div>`)
 
         $("#conunt-all-sp").text($(".chat-team-box").children().length -1)
-    } else if (data.type == 'disconnect'){
+    } else if (data.type === 'disconnect'){
             $(this).hide()
         $("#conunt-all-sp").text($(".chat-team-box").children().length -1)
     }
