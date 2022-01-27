@@ -94,10 +94,16 @@ body{ margin: 0; padding: 0; border: 0;}
 #chat-area{
     width: 100%;
     height: 80%;
-    border-radius: 5px 5px 0 0;
-    margin-bottom: 15px;
+    border-radius:  5px 5px 0 0;
+    margin-bottom: 0px;
+    padding-bottom: 15px;
     background-color: black;
     overflow-y: scroll;
+}
+.pm-15{
+    padding-bottom: 20px;
+    background-color: black;
+    border-radius: 0 0 5px 5px ;
 }
 #chat-area::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/

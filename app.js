@@ -49,6 +49,7 @@ io.sockets.on('connection',function (socket){
         //소켓에 이름저장하기
         socket.name = name
 
+
         //모든 소켓에 전송
         io.sockets.emit('update',{type:'connect', name:'SERVER', realname:name, message:name+' 님이 접속 했습니다.'})
     })
@@ -57,7 +58,7 @@ io.sockets.on('connection',function (socket){
     socket.on('message',function (data){
 
         data.name = socket.name
-
+        data.id = socket.name
         console.log(data)
 
         //보낸사람 제외한 나머지 유저에게 메시지 전송
@@ -69,6 +70,13 @@ io.sockets.on('connection',function (socket){
         console.log(socket.name+"님이 나갔습니다")
 
         socket.broadcast.emit('update',{type:'disconnect', name:'SERVER', message: socket.name+ ' 님이 나갔습니다.'});
+    })
+
+    socket.on('endbutton',function (data){
+        console.log(socket.name+"님이 나갔습니다")
+
+
+        socket.broadcast.emit('update',{type:'endd', id:socket.name ,name:'SERVER', message: socket.name+ ' 님이 나갔습니다.'});
     })
 })
 

@@ -27,7 +27,7 @@
                 <button type="button" id="stop" class="btn btn-outline-primary">공유중지</button>
                 <button type="button" id="start" class="btn btn-outline-primary">화면공유</button>
                 <button type="button" id="snapshot" class="btn btn-outline-primary">화면캡쳐</button>
-                <button type="button" onclick="end()" class="btn btn-outline-primary">나가기</button>
+                <button type="button" onclick="endd()" class="btn btn-outline-primary">나가기</button>
             </div>
         </div>
 
@@ -58,9 +58,9 @@
             <div id="chat-area">
 
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group  pm-15">
                 <input type="text" class="form-control" id="test"  aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" onclick="send()" type="button" id="button-addon2">전송</button>
+                <button class="btn btn-outline-secondary ididididid" onclick="send()" type="button" id="button-addon2">전송</button>
             </div>
         </div>
 
@@ -68,13 +68,19 @@
     </div>
 </div>
 <script type="text/javascript">
+
+    $("#test").keydown(function (key){
+        if (key.keyCode == 13){
+            send();
+        }
+    })
+
     //팀or채팅
     $(".a_btn").click(function(){
         $(".chat-team-box").hide();
         $(".text-chat-box").show();
     })
     $(".b_btn").click(function(){
-        console.log("aa")
         $(".text-chat-box").hide();
         $(".chat-team-box").show();
     })
