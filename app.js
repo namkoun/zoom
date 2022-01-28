@@ -72,6 +72,11 @@ io.sockets.on('connection',function (socket){
         socket.broadcast.emit('update',{type:'disconnect', name:'SERVER', message: socket.name+ ' 님이 나갔습니다.'});
     })
 
+    socket.on('videoid',function (data){
+        console.log(data)
+        socket.broadcast.emit('update',{type:'endd',ennnndd:data});
+    })
+
     socket.on('endbutton',function (data){
         console.log(socket.name+"님이 나갔습니다")
 

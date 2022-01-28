@@ -90,17 +90,21 @@
     const startButton = document.querySelector('#start')
     const stopButton = document.querySelector('#stop')
     const snapshotButton = document.querySelector('#snapshot')
-
+    const rtcPeerConnection = new RTCPeerConnection();
     // 화면캡쳐(video)를 시작하는 함수
     async function startCapture() {
         try {
-            const displayMediaOptions = {id:'1' ,audio: true, video: { cursor: 'always' } }
+            const displayMediaOptions = {id:'123123' ,audio: true, video: { cursor: 'always' } }
             const captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
             videoElement.srcObject = captureStream
+            var captureStream1 =  videoElement.srcObject
             startButton.disabled = true
             stopButton.disabled = false
             snapshotButton.disabled = false
             console.log(captureStream.id)
+            captureStream1.getTracks().forEach(track => rtcPeerConnection.addTrack(track))
+
+            objectvideo(captureStream1)
         } catch (err) {
             console.error(err)
         }

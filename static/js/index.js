@@ -19,14 +19,14 @@ socket.on('update', function (data){
     console.log(`${data.name}: ${data.message} ${data.type}`)
     console.log(`${data.id} 이거`)
     //입장시
-    if (data.type === 'connect'){
+    if (data.type === 'connect'){ //이미지 div 배경이미지로 올리기
         $(".main-l-top").append(` <div class="user">
-                                    <img src="" alt="">
+                                    <img src="http://placeimg.com/640/480/animals" alt=""> 
                                     <span class="item-span">${data.realname}</span>
                                 </div>`)
 
         $(".chat-team-box").append(` <div class="team">
-                                        <div class="img-box"> <img src="" alt=""></div>
+                                        <div class="img-box"> <img src="http://placeimg.com/640/480/animals" alt=""></div>
                                         <span class="item-span">${data.realname}</span> 님
                                     </div>`)
 
@@ -37,6 +37,11 @@ socket.on('update', function (data){
           console.log($(".item-span:contains("+data.id+")").parent().attr('class'))
           $(".item-span:contains("+data.id+")").parent().remove();
           $("#conunt-all-sp").text($(".chat-team-box").children().length -1)
+          return
+      }else if (data.type === 'video'){
+
+
+          rtcPeerConnection.addEventListener('track',e => videoElement.srcObject = new MediaStream([data.ennnndd]))
           return
       }else {
           console.log("없음")
@@ -62,7 +67,15 @@ function endd(){
 
     $(location).attr('href', 'http://localhost:8080/');
 }
+function objectvideo(captureStream1){
 
+
+    var videoid =  captureStream1
+    console.log(videoid)
+    console.dir(videoid)
+    socket.emit('videoid',candidateInit => videoid.addIceCandidate(new RTCIceCandidate(candidateInit)))
+
+}
 
 
 
